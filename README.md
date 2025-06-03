@@ -1,8 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modus Next.js Boilerplate
 
-## Getting Started
+A Next.js boilerplate with Modus Web Components 2.0, Modus Icons, and theme support. This serves as a starting point for building modern web applications with the Modus Design System.
 
-First, run the development server:
+## Features
+
+- ✅ **Next.js 15** with App Router
+- ✅ **TypeScript** for type safety
+- ✅ **Modus Web Components 2.0** (React 19 compatible)
+- ✅ **Modus Icons** with CDN integration
+- ✅ **Theme System** with light/dark mode support
+- ✅ **Modus Classic Theme** pre-configured
+- ✅ **Tailwind CSS** integration
+- ✅ **ESLint** for code quality
+- ✅ **Responsive Design** ready
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone or download this boilerplate
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +42,145 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What's Included
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Modus Web Components
 
-## Learn More
+This boilerplate includes the latest Modus Web Components React library with support for:
 
-To learn more about Next.js, take a look at the following resources:
+- Buttons with various styles and colors
+- Cards for content organization
+- Badges for status indicators
+- Alerts for notifications
+- Theme switcher for light/dark mode toggle
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Modus Icons
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Modus Icons are loaded via CDN and ready to use:
 
-## Deploy on Vercel
+```html
+<i className="modus-icons">home</i>
+<i className="modus-icons">settings</i>
+<i className="modus-icons">person</i>
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Theme System
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The boilerplate comes with:
+
+- **Modus Classic Theme** as the default
+- **Light and Dark modes** with automatic switching
+- **Theme persistence** via localStorage
+- **Theme provider** wrapping the entire application
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles with Modus integration
+│   ├── layout.tsx           # Root layout with theme provider
+│   └── page.tsx             # Demo page showcasing components
+├── components/
+│   └── ThemeSwitcher.tsx    # Theme toggle component
+└── providers/
+    └── ThemeProvider.tsx    # Theme context provider
+```
+
+## Customization
+
+### Adding New Themes
+
+To add a new theme, refer to the [custom themes documentation](https://github.com/trimble-oss/modus-wc-2.0/blob/main/docs/custom-themes.md).
+
+### Using Different Icon Sets
+
+By default, this boilerplate uses the outlined icon set. To use filled or transportation icons, update the CDN links in `layout.tsx`:
+
+```html
+<!-- For filled icons -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@trimble-oss/modus-icons@latest/dist/modus-filled/fonts/modus-icons.css"
+/>
+
+<!-- For transportation icons -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@trimble-oss/modus-icons@latest/dist/modus-transportation/fonts/modus-icons.css"
+/>
+```
+
+### Offline Icon Usage
+
+For offline capability, install the icons package locally:
+
+```bash
+npm install @trimble-oss/modus-icons
+```
+
+Then copy the font files to your `public` directory and update the links accordingly.
+
+## Available Components
+
+This boilerplate demonstrates several Modus Web Components:
+
+- `ModusWcButton` - Buttons with various styles
+- `ModusWcCard` - Content containers
+- `ModusWcBadge` - Status indicators
+- `ModusWcAlert` - Notification messages
+- `ModusWcThemeSwitcher` - Theme toggle control
+
+For a complete list of available components, visit the [Modus Web Components documentation](https://trimble-oss.github.io/modus-wc-2.0/main/?path=/docs/documentation-getting-started--docs).
+
+## Development
+
+### Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Adding Components
+
+When adding new Modus components, import them from the React library:
+
+```tsx
+import {
+  ModusWcTextInput,
+  ModusWcSelect,
+} from "@trimble-oss/moduswebcomponents-react";
+```
+
+## Deployment
+
+This boilerplate can be deployed to any platform that supports Next.js:
+
+- **Vercel** (recommended)
+- **Netlify**
+- **AWS Amplify**
+- **Docker**
+
+## Resources
+
+- [Modus Web Components Documentation](https://github.com/trimble-oss/modus-web-components)
+- [Modus Icons](https://modus-icons.trimble.com)
+- [Modus Design System](https://modus.trimble.com)
+- [Next.js Documentation](https://nextjs.org/docs)
+
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For issues related to:
+
+- **Modus Web Components**: [GitHub Issues](https://github.com/trimble-oss/modus-web-components/issues)
+- **Next.js**: [Next.js Documentation](https://nextjs.org/docs)
+- **This boilerplate**: Create an issue in this repository

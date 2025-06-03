@@ -1,103 +1,266 @@
-import Image from "next/image";
+"use client";
+
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { ClientOnly } from "@/components/ClientOnly";
+import {
+  ModusWcButton,
+  ModusWcCard,
+  ModusWcBadge,
+  ModusWcAlert,
+  ModusWcAccordion,
+  ModusWcCollapse,
+} from "@trimble-oss/moduswebcomponents-react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const loadingFallback = (
+    <div className="min-h-screen p-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/2 mb-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="h-64 bg-gray-200 rounded"></div>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
+  );
+
+  // Accordion collapse options
+  const accordionItems = [
+    {
+      title: "Getting Started",
+      description: "Learn the basics",
+      icon: "play_circle",
+      iconAriaLabel: "Play",
+      content:
+        "This section covers the fundamental concepts and initial setup required to get started with Modus Web Components. You'll learn about installation, basic configuration, and your first component implementation.",
+    },
+    {
+      title: "Components Overview",
+      description: "Explore available components",
+      icon: "widgets",
+      iconAriaLabel: "Widgets",
+      content:
+        "Discover the comprehensive library of Modus Web Components including buttons, cards, forms, navigation elements, and more. Each component is designed with accessibility and consistency in mind.",
+    },
+    {
+      title: "Theming & Customization",
+      description: "Customize your design",
+      icon: "palette",
+      iconAriaLabel: "Palette",
+      content:
+        "Learn how to customize the appearance of components using the Modus theme system. You can switch between light and dark modes, and customize colors, typography, and spacing to match your brand.",
+    },
+    {
+      title: "Advanced Features",
+      description: "Unlock powerful capabilities",
+      icon: "settings",
+      iconAriaLabel: "Settings",
+      content:
+        "Explore advanced features like custom event handling, complex data binding, form validation, and integration with popular frameworks like React, Angular, and Vue.",
+    },
+  ];
+
+  return (
+    <ClientOnly fallback={loadingFallback}>
+      <div className="min-h-screen p-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <header className="flex justify-between items-center mb-8">
+            <div>
+              <h1 className="text-4xl font-bold mb-2">
+                Modus Next.js Boilerplate
+              </h1>
+              <p className="text-lg opacity-75">
+                A Next.js boilerplate with Modus Web Components and Icons
+              </p>
+            </div>
+            <ThemeSwitcher />
+          </header>
+
+          {/* Alert */}
+          <div className="mb-8">
+            <ModusWcAlert
+              alertDescription="Welcome to your Modus Next.js boilerplate! This demonstrates the integration of Modus Web Components."
+              variant="success"
+              dismissible={true}
+            />
+          </div>
+
+          {/* Main Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Buttons Section */}
+            <ModusWcCard>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    <ModusWcButton color="primary">Primary</ModusWcButton>
+                    <ModusWcButton color="secondary">Secondary</ModusWcButton>
+                    <ModusWcButton color="danger">Danger</ModusWcButton>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <ModusWcButton variant="outlined" color="primary">
+                      Outline Primary
+                    </ModusWcButton>
+                    <ModusWcButton variant="borderless" color="primary">
+                      Borderless Button
+                    </ModusWcButton>
+                  </div>
+                </div>
+              </div>
+            </ModusWcCard>
+
+            {/* Icons Section */}
+            <ModusWcCard>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Modus Icons</h2>
+                <div className="space-y-4">
+                  <p className="text-sm opacity-75 mb-4">
+                    Icons are loaded from the Modus Icons CDN and can be used
+                    with the icon font classes:
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-2xl">
+                    <i className="modus-icons" title="Home">
+                      home
+                    </i>
+                    <i className="modus-icons" title="Settings">
+                      settings
+                    </i>
+                    <i className="modus-icons" title="User">
+                      person
+                    </i>
+                    <i className="modus-icons" title="Search">
+                      search
+                    </i>
+                    <i className="modus-icons" title="Calendar">
+                      calendar
+                    </i>
+                    <i className="modus-icons" title="Mail">
+                      mail
+                    </i>
+                  </div>
+                  <div className="mt-4">
+                    <ModusWcButton color="primary">
+                      <i className="modus-icons mr-2">add</i>
+                      Button with Icon
+                    </ModusWcButton>
+                  </div>
+                </div>
+              </div>
+            </ModusWcCard>
+
+            {/* Badges Section */}
+            <ModusWcCard>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Badges</h2>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    <ModusWcBadge content="Default" />
+                    <ModusWcBadge content="Primary" color="primary" />
+                    <ModusWcBadge content="Warning" color="warning" />
+                    <ModusWcBadge content="Danger" color="danger" />
+                  </div>
+                </div>
+              </div>
+            </ModusWcCard>
+
+            {/* Theme Information */}
+            <ModusWcCard>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Theme System</h2>
+                <div className="space-y-4">
+                  <p className="text-sm opacity-75">
+                    This boilerplate uses the Modus Classic theme with both
+                    light and dark modes. Use the theme switcher in the
+                    top-right corner to toggle between modes.
+                  </p>
+                  <div className="space-y-2">
+                    <p>
+                      <strong>Current Theme:</strong> Modus Classic
+                    </p>
+                    <p>
+                      <strong>Available Modes:</strong> Light & Dark
+                    </p>
+                    <p>
+                      <strong>Theme Storage:</strong> Local Storage
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ModusWcCard>
+          </div>
+
+          {/* Accordion Section */}
+          <div className="mt-8">
+            <ModusWcCard>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">
+                  Accordion Component
+                </h2>
+                <p className="text-sm opacity-75 mb-6">
+                  Interactive accordion component with collapsible sections.
+                  Click on any section to expand or collapse it.
+                </p>
+                <ModusWcAccordion
+                  customClass="accordion-demo"
+                  onExpandedChange={(e) => {
+                    console.log("Accordion item expanded:", e.detail);
+                  }}
+                >
+                  {accordionItems.map((item, index) => (
+                    <ModusWcCollapse
+                      key={index}
+                      bordered={true}
+                      options={{
+                        title: item.title,
+                        description: item.description,
+                        icon: item.icon,
+                        iconAriaLabel: item.iconAriaLabel,
+                        size: "md",
+                      }}
+                    >
+                      <div
+                        slot="content"
+                        className="p-4 text-sm leading-relaxed"
+                      >
+                        {item.content}
+                      </div>
+                    </ModusWcCollapse>
+                  ))}
+                </ModusWcAccordion>
+              </div>
+            </ModusWcCard>
+          </div>
+
+          {/* Footer */}
+          <footer className="mt-12 text-center opacity-75">
+            <p>
+              Built with{" "}
+              <a
+                href="https://nextjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:no-underline"
+              >
+                Next.js
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://github.com/trimble-oss/modus-web-components"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:no-underline"
+              >
+                Modus Web Components
+              </a>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </ClientOnly>
   );
 }
