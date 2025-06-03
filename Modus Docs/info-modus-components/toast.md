@@ -20,7 +20,7 @@ The `modus-wc-toast` component uses its default slot to render the content of th
 
 Here are some examples based on the `modus-wc-toast.stories.ts` file:
 
-**Default Toast:**
+### Default Toast
 
 This example shows a basic toast positioned at the top-end, containing a `modus-wc-alert`.
 
@@ -37,7 +37,7 @@ This example shows a basic toast positioned at the top-end, containing a `modus-
 </div>
 ```
 
-**Toast with Auto-Dismissal (`delay`):**
+### Toast with Auto-Dismissal (`delay`)
 
 Set the `delay` property (in milliseconds) to have the toast automatically dismiss itself after the specified time.
 
@@ -55,37 +55,43 @@ Set the `delay` property (in milliseconds) to have the toast automatically dismi
 </div>
 ```
 
-**Different Positions:**
+### Different Positions
 
 You can control where the toast appears on the screen using the `position` property.
 
-- **Top Start:**
-  ```html
-  <modus-wc-toast position="top-start">
-    <modus-wc-alert
-      alert-title="Top Start Toast"
-      variant="warning"
-    ></modus-wc-alert>
-  </modus-wc-toast>
-  ```
-- **Middle Center:**
-  ```html
-  <modus-wc-toast position="middle-center">
-    <modus-wc-alert
-      alert-title="Middle Center Toast"
-      variant="error"
-    ></modus-wc-alert>
-  </modus-wc-toast>
-  ```
-- **Bottom End:**
-  ```html
-  <modus-wc-toast position="bottom-end">
-    <modus-wc-alert alert-title="Bottom End Toast"></modus-wc-alert>
-  </modus-wc-toast>
-  ```
-  _(For these examples to display correctly in isolation, their parent container needs appropriate sizing and potentially `position: relative;` if the toast is absolutely positioned relative to it.)_
+#### Top Start
 
-**Multiple Toasts:**
+```html
+<modus-wc-toast position="top-start">
+  <modus-wc-alert
+    alert-title="Top Start Toast"
+    variant="warning"
+  ></modus-wc-alert>
+</modus-wc-toast>
+```
+
+#### Middle Center
+
+```html
+<modus-wc-toast position="middle-center">
+  <modus-wc-alert
+    alert-title="Middle Center Toast"
+    variant="error"
+  ></modus-wc-alert>
+</modus-wc-toast>
+```
+
+#### Bottom End
+
+```html
+<modus-wc-toast position="bottom-end">
+  <modus-wc-alert alert-title="Bottom End Toast"></modus-wc-alert>
+</modus-wc-toast>
+```
+
+_(For these examples to display correctly in isolation, their parent container needs appropriate sizing and potentially `position: relative;` if the toast is absolutely positioned relative to it.)_
+
+### Multiple Toasts
 
 Toasts are designed to stack. If multiple `modus-wc-toast` components are rendered with the same `position`, they will typically stack vertically or horizontally based on the DaisyUI CSS that powers their positioning.
 
@@ -109,7 +115,7 @@ Toasts are designed to stack. If multiple `modus-wc-toast` components are render
 </div>
 ```
 
-**Applying a Custom Class:**
+### Applying a Custom Class
 
 Use the `custom-class` property for additional CSS styling if needed for the toast container itself.
 
@@ -127,7 +133,8 @@ Use the `custom-class` property for additional CSS styling if needed for the toa
 </modus-wc-toast>
 ```
 
-**Programmatic Dismissal:**
+### Programmatic Dismissal
+
 While `delay` handles auto-dismissal, you can also programmatically remove a toast element from the DOM if you have a reference to it.
 
 ```html

@@ -14,15 +14,15 @@ Based on the `readme.md` file, here are the properties for the `modus-wc-toolbar
 
 The `modus-wc-toolbar` component uses three named slots to organize its content:
 
-- **`start`**: Content placed in this slot will be aligned to the beginning (left side in LTR languages) of the toolbar.
-- **`center`**: Content placed in this slot will be positioned in the middle section of the toolbar.
-- **`end`**: Content placed in this slot will be aligned to the end (right side in LTR languages) of the toolbar.
+- `start`: Content placed in this slot will be aligned to the beginning (left side in LTR languages) of the toolbar.
+- `center`: Content placed in this slot will be positioned in the middle section of the toolbar.
+- `end`: Content placed in this slot will be aligned to the end (right side in LTR languages) of the toolbar.
 
 ## Usage Examples
 
 Here's an example based on the `modus-wc-toolbar.stories.ts` file:
 
-**Default Toolbar Layout:**
+### Default Toolbar Layout
 
 This example demonstrates how to place different elements into the `start`, `center`, and `end` slots of the toolbar.
 
@@ -58,9 +58,7 @@ This example demonstrates how to place different elements into the `start`, `cen
 </modus-wc-toolbar>
 ```
 
-````
-
-**Toolbar with Custom Class:**
+### Toolbar with Custom Class
 
 You can apply a custom CSS class to the toolbar's outer div for additional styling.
 
@@ -89,10 +87,10 @@ You can apply a custom CSS class to the toolbar's outer div for additional styli
 </modus-wc-toolbar>
 ```
 
-**Integration with `modus-wc-navbar`:**
+### Integration with `modus-wc-navbar`
+
 The `modus-wc-toolbar` is a foundational layout component that is internally used by `modus-wc-navbar` to structure its more complex navigation elements. When building a custom toolbar with specific layout needs not fully covered by `modus-wc-navbar`, `modus-wc-toolbar` can be used directly.
 
 ```
 
 ```
-````

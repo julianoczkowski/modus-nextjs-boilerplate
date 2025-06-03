@@ -22,9 +22,9 @@ Based on the `readme.md` file, here are the properties for the `modus-wc-accordi
 
 ## Usage Examples
 
-Here's an example based on the `modus-wc-accordion.stories.ts` file:
+Here is an example based on the `modus-wc-accordion.stories.ts` file:
 
-**Default Accordion:**
+### Default Accordion
 
 This example shows how to create an accordion with multiple `modus-wc-collapse` items. Each `modus-wc-collapse` component defines its own header and content.
 
@@ -56,54 +56,53 @@ This example shows how to create an accordion with multiple `modus-wc-collapse` 
 </div>
 
 <script>
-  // The .options prop for modus-wc-collapse would typically be set via a JavaScript framework.
-  // For plain HTML, you would set individual attributes on modus-wc-collapse instead,
-  // or use a script to set the options property.
-  // Example of setting options programmatically if not using a framework:
-  document.addEventListener('DOMContentLoaded', () => {
-    const accordions = document.querySelectorAll('modus-wc-accordion');
-    accordions.forEach(accordion => {
-      const collapses = accordion.querySelectorAll('modus-wc-collapse');
-      const collapseOptions = [
-        {
-          description: 'Item one description',
-          icon: 'alert',
-          iconAriaLabel: 'Alert',
-          title: 'Item One',
-        },
-        {
-          description: 'Item two description',
-          icon: 'alert',
-          iconAriaLabel: 'Alert',
-          title: 'Item Two',
-        },
-        {
-          description: 'Item three description',
-          icon: 'alert',
-          iconAriaLabel: 'Alert',
-          title: 'Item Three',
-        },
-      ];
-      collapses.forEach((collapse, index) => {
-        if (collapseOptions[index]) {
-          collapse.options = collapseOptions[index];
-        }
-      });
+// The .options prop for modus-wc-collapse would typically be set via a JavaScript framework.
+// For plain HTML, you would set individual attributes on modus-wc-collapse instead,
+// or use a script to set the options property.
+// Example of setting options programmatically if not using a framework:
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('modus-wc-accordion');
+  accordions.forEach(accordion => {
+    const collapses = accordion.querySelectorAll('modus-wc-collapse');
+    const collapseOptions = [
+      {
+        description: 'Item one description',
+        icon: 'alert',
+        iconAriaLabel: 'Alert',
+        title: 'Item One',
+      },
+      {
+        description: 'Item two description',
+        icon: 'alert',
+        iconAriaLabel: 'Alert',
+        title: 'Item Two',
+      },
+      {
+        description: 'Item three description',
+        icon: 'alert',
+        iconAriaLabel: 'Alert',
+        title: 'Item Three',
+      },
+    ];
+    collapses.forEach((collapse, index) => {
+      if (collapseOptions[index]) {
+        collapse.options = collapseOptions[index];
+      }
     });
   });
+});
 </script>
 ```
 
-**Note on `modus-wc-collapse` options:**
-The `.options` property on `modus-wc-collapse` is an object (`ICollapseOptions`) that can define:
-
-- `title`: The title of the collapse item. (string)
-- `description`: A description shown below the title. (string, optional)
-- `icon`: A Modus icon name to display. (string, optional)
-- `iconAriaLabel`: Aria label for the icon. (string, optional)
-- `size`: The size of the collapse header ('xs', 'sm', 'md', 'lg'). (DaisySize, optional)
-
-Alternatively, if not using the `options` prop, you can slot custom HTML content into the `header` slot of each `modus-wc-collapse` component.
+> **Note:** The `.options` property on `modus-wc-collapse` is an object (`ICollapseOptions`) that can define:
+>
+> - `title`: The title of the collapse item. (string)
+> - `description`: A description shown below the title. (string, optional)
+> - `icon`: A Modus icon name to display. (string, optional)
+> - `iconAriaLabel`: Aria label for the icon. (string, optional)
+> - `size`: The size of the collapse header (`'xs'`, `'sm'`, `'md'`, `'lg'`). (DaisySize, optional)
+>
+> Alternatively, if not using the `options` prop, you can slot custom HTML content into the `header` slot of each `modus-wc-collapse` component.
 
 ## Migration from Version 1.0
 
@@ -113,30 +112,30 @@ The `modus-wc-accordion.stories.ts` file provides insights for migrating:
 - **Slots:** The new `modus-wc-collapse` (which replaces `modus-accordion-item`) supports `header` and `content` slots for maximum flexibility.
 - **Sizing:** Size values for the items have changed from `condensed`, `standard` (in v1.0 `modus-accordion-item`) to DaisyUI-based abbreviations (`xs`, `sm`, `md`, `lg`) in the `options.size` property of the v2.0 `modus-wc-collapse` component.
 
-**Prop Mapping (Accordion):**
+### Prop Mapping (Accordion)
 
-| 1.0 Prop   | 2.0 Prop (`modus-wc-accordion`) | Notes |
-| ---------- | ------------------------------- | ----- |
-| aria-label | aria-label                      |       |
+| 1.0 Prop     | 2.0 Prop (`modus-wc-accordion`) | Notes |
+| ------------ | ------------------------------- | ----- |
+| `aria-label` | `aria-label`                    |       |
 
-**Prop Mapping (Accordion Item to Collapse Item):**
+### Prop Mapping (Accordion Item to Collapse Item)
 
 | 1.0 `modus-accordion-item` Prop | 2.0 `modus-wc-collapse` Prop / Option | Notes            |
 | ------------------------------- | ------------------------------------- | ---------------- |
-| aria-label                      | aria-label                            |                  |
-| disabled                        |                                       | Not carried over |
-| expand-button-type              |                                       | Not carried over |
-| expanded                        | `expanded` (prop)                     |                  |
-| header-text                     | `options.title`                       |                  |
-| icon                            | `options.icon`                        |                  |
-| supporting-label                | `options.description`                 |                  |
-| size                            | `options.size`                        |                  |
+| `aria-label`                    | `aria-label`                          |                  |
+| `disabled`                      |                                       | Not carried over |
+| `expand-button-type`            |                                       | Not carried over |
+| `expanded`                      | `expanded` (prop)                     |                  |
+| `header-text`                   | `options.title`                       |                  |
+| `icon`                          | `options.icon`                        |                  |
+| `supporting-label`              | `options.description`                 |                  |
+| `size`                          | `options.size`                        |                  |
 
-**Event Mapping (Accordion Item to Accordion):**
+### Event Mapping (Accordion Item to Accordion)
 
 The new accordion and collapse components have their own distinct events. It's recommended to use the `modus-wc-accordion`'s `expandedChange` event for similar functionality.
 
 | 1.0 `modus-accordion-item` Event | 2.0 `modus-wc-accordion` Event | Notes |
 | -------------------------------- | ------------------------------ | ----- |
-| closed                           | `expandedChange`               |       |
-| opened                           | `expandedChange`               |       |
+| `closed`                         | `expandedChange`               |       |
+| `opened`                         | `expandedChange`               |       |

@@ -23,7 +23,7 @@ The `modus-wc-tooltip` component uses its default slot to wrap the element that 
 
 Here are some examples based on the `modus-wc-tooltip.stories.ts` file:
 
-**Default Tooltip:**
+### Default Tooltip
 
 This example shows a tooltip that appears when hovering over a `modus-wc-badge`. The position defaults to `'auto'`.
 
@@ -33,36 +33,43 @@ This example shows a tooltip that appears when hovering over a `modus-wc-badge`.
 </modus-wc-tooltip>
 ```
 
-**Tooltip Positions:**
+### Tooltip Positions
 
 You can control where the tooltip appears relative to the slotted element using the `position` property.
 
-- **Top Position:**
-  ```html
-  <modus-wc-tooltip content="Tooltip on top" position="top">
-    <modus-wc-button>Top Tooltip</modus-wc-button>
-  </modus-wc-tooltip>
-  ```
-- **Bottom Position:**
-  ```html
-  <modus-wc-tooltip content="Tooltip on bottom" position="bottom">
-    <modus-wc-button>Bottom Tooltip</modus-wc-button>
-  </modus-wc-tooltip>
-  ```
-- **Left Position:**
-  ```html
-  <modus-wc-tooltip content="Tooltip on left" position="left">
-    <modus-wc-button>Left Tooltip</modus-wc-button>
-  </modus-wc-tooltip>
-  ```
-- **Right Position:**
-  ```html
-  <modus-wc-tooltip content="Tooltip on right" position="right">
-    <modus-wc-button>Right Tooltip</modus-wc-button>
-  </modus-wc-tooltip>
-  ```
+#### Top Position
 
-**Disabled Tooltip:**
+```html
+<modus-wc-tooltip content="Tooltip on top" position="top">
+  <modus-wc-button>Top Tooltip</modus-wc-button>
+</modus-wc-tooltip>
+```
+
+#### Bottom Position
+
+```html
+<modus-wc-tooltip content="Tooltip on bottom" position="bottom">
+  <modus-wc-button>Bottom Tooltip</modus-wc-button>
+</modus-wc-tooltip>
+```
+
+#### Left Position
+
+```html
+<modus-wc-tooltip content="Tooltip on left" position="left">
+  <modus-wc-button>Left Tooltip</modus-wc-button>
+</modus-wc-tooltip>
+```
+
+#### Right Position
+
+```html
+<modus-wc-tooltip content="Tooltip on right" position="right">
+  <modus-wc-button>Right Tooltip</modus-wc-button>
+</modus-wc-tooltip>
+```
+
+### Disabled Tooltip
 
 Set `disabled="true"` to prevent the tooltip from appearing.
 
@@ -72,7 +79,7 @@ Set `disabled="true"` to prevent the tooltip from appearing.
 </modus-wc-tooltip>
 ```
 
-**Force Open Tooltip:**
+### Force Open Tooltip
 
 Set `force-open="true"` to make the tooltip visible constantly. This is primarily for debugging or specific UI demonstration purposes.
 
@@ -86,7 +93,7 @@ Set `force-open="true"` to make the tooltip visible constantly. This is primaril
 </modus-wc-tooltip>
 ```
 
-**Using `tooltipId` for Accessibility:**
+### Using `tooltipId` for Accessibility
 
 You can assign an `id` to the tooltip using `tooltip-id`. This `id` can then be used with `aria-describedby` on the element that triggers the tooltip, or on another related element, to programmatically associate the tooltip's content as a description.
 
@@ -109,7 +116,7 @@ You can assign an `id` to the tooltip using `tooltip-id`. This `id` can then be 
 </modus-wc-tooltip>
 ```
 
-**Applying a Custom Class:**
+### Applying a Custom Class
 
 Use `custom-class` for additional styling of the tooltip's container.
 
@@ -131,7 +138,7 @@ Use `custom-class` for additional styling of the tooltip's container.
 </modus-wc-tooltip>
 ```
 
-_Note: Styling the tooltip bubble itself (the part with the text) often involves targeting pseudo-elements like `::before` (for the bubble) and `::after` (for the arrow/tail) if using DaisyUI's CSS-based tooltip approach, or by overriding CSS variables if available._
+> _Note: Styling the tooltip bubble itself (the part with the text) often involves targeting pseudo-elements like `::before` (for the bubble) and `::after` (for the arrow/tail) if using DaisyUI's CSS-based tooltip approach, or by overriding CSS variables if available._
 
 ```
 

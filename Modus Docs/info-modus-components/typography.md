@@ -23,7 +23,7 @@ The `modus-wc-typography` component uses its default slot to render the text con
 
 Here are some examples based on the `modus-wc-typography.stories.ts` file:
 
-**Default Typography (Paragraph):**
+### Default Typography (Paragraph)
 
 This shows basic paragraph text with default medium size and normal weight.
 
@@ -33,28 +33,31 @@ This shows basic paragraph text with default medium size and normal weight.
 </modus-wc-typography>
 ```
 
-````
-
-**Heading Variants:**
+### Heading Variants
 
 Use the `variant` property to render semantic heading tags.
 
-- **H1 Heading:**
-  ```html
-  <modus-wc-typography variant="h1"> This is a Heading 1 </modus-wc-typography>
-  ```
-- **H3 Heading with Bold Weight:**
-  ```html
-  <modus-wc-typography variant="h3" weight="bold">
-    This is a Bold Heading 3
-  </modus-wc-typography>
-  ```
-- **H6 Heading (typically small and bold by default):**
-  ```html
-  <modus-wc-typography variant="h6"> This is a Heading 6 </modus-wc-typography>
-  ```
+#### H1 Heading
 
-**Body Variant (renders as `<span>`):**
+```html
+<modus-wc-typography variant="h1"> This is a Heading 1 </modus-wc-typography>
+```
+
+#### H3 Heading with Bold Weight
+
+```html
+<modus-wc-typography variant="h3" weight="bold">
+  This is a Bold Heading 3
+</modus-wc-typography>
+```
+
+#### H6 Heading (typically small and bold by default)
+
+```html
+<modus-wc-typography variant="h6"> This is a Heading 6 </modus-wc-typography>
+```
+
+### Body Variant (renders as `<span>`)
 
 The `body` variant is useful for inline text elements or when you need a `<span>` tag. You can control its size and weight.
 
@@ -64,7 +67,7 @@ The `body` variant is useful for inline text elements or when you need a `<span>
 </modus-wc-typography>
 ```
 
-**Paragraph Variant (renders as `<p>`):**
+### Paragraph Variant (renders as `<p>`)
 
 The `p` variant explicitly renders a paragraph tag.
 
@@ -74,24 +77,27 @@ The `p` variant explicitly renders a paragraph tag.
 </modus-wc-typography>
 ```
 
-**Customizing Size and Weight for non-heading variants:**
+### Customizing Size and Weight for non-heading variants
 
 For `body` and `p` variants, `size` and `weight` props work as expected.
 
-- **Extra Small, Bold Text:**
-  ```html
-  <modus-wc-typography size="xs" weight="bold">
-    Extra small and bold.
-  </modus-wc-typography>
-  ```
-- **Large, Light Text:**
-  ```html
-  <modus-wc-typography variant="body" size="lg" weight="light">
-    Large and light body text.
-  </modus-wc-typography>
-  ```
+#### Extra Small, Bold Text
 
-**Applying a Custom Class:**
+```html
+<modus-wc-typography size="xs" weight="bold">
+  Extra small and bold.
+</modus-wc-typography>
+```
+
+#### Large, Light Text
+
+```html
+<modus-wc-typography variant="body" size="lg" weight="light">
+  Large and light body text.
+</modus-wc-typography>
+```
+
+### Applying a Custom Class
 
 Use the `custom-class` property for additional CSS styling if needed.
 
@@ -108,10 +114,10 @@ Use the `custom-class` property for additional CSS styling if needed.
 </modus-wc-typography>
 ```
 
-**Note on Storybook Decorator in `modus-wc-typography.stories.ts`:**
+### Note on Storybook Decorator in `modus-wc-typography.stories.ts`
+
 The story file includes a decorator to ensure slot content is correctly re-rendered when the `variant` prop changes in Storybook's controls. This is a Storybook-specific workaround and doesn't affect how you use the component in an application. In your application, you would directly place text or HTML inside the `modus-wc-typography` tags.
 
 ```
 
 ```
-````

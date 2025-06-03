@@ -31,7 +31,7 @@ Based on the `readme.md` file (which refers to it as "modus-wc-toggle" in the au
 
 Here are some examples based on the `modus-wc-switch.stories.ts` file:
 
-**Default Switch:**
+### Default Switch
 
 This is the basic usage of the switch with a label.
 
@@ -46,7 +46,7 @@ This is the basic usage of the switch with a label.
 
 _Note: In a real application, the `value` property would typically be bound to a component's state and updated via the `inputChange` event._
 
-**Switch Sizes:**
+### Switch Sizes
 
 You can control the size of the switch using the `size` property (`sm`, `md`, `lg`).
 
@@ -60,7 +60,7 @@ You can control the size of the switch using the `size` property (`sm`, `md`, `l
 <modus-wc-switch label="Large Switch" size="lg"></modus-wc-switch>
 ```
 
-**Disabled Switch:**
+### Disabled Switch
 
 Set the `disabled` property to `true` to prevent user interaction.
 
@@ -71,7 +71,7 @@ Set the `disabled` property to `true` to prevent user interaction.
 </modus-wc-switch>
 ```
 
-**Indeterminate Switch:**
+### Indeterminate Switch
 
 The `indeterminate` state can represent a "mixed" state, though its visual representation for a switch might be less common than for a checkbox. When `indeterminate` is true, the switch's appearance might indicate this third state.
 
@@ -82,7 +82,7 @@ The `indeterminate` state can represent a "mixed" state, though its visual repre
 ></modus-wc-switch>
 ```
 
-**Required Switch:**
+### Required Switch
 
 Set the `required` property to `true`. For a switch, this typically means it must be in the "on" (true) state for form submission if it's the only way to satisfy a requirement.
 
@@ -93,7 +93,7 @@ Set the `required` property to `true`. For a switch, this typically means it mus
 ></modus-wc-switch>
 ```
 
-**Switch without Label:**
+### Switch without Label
 
 If you don't provide a `label`, ensure you provide an `aria-label` directly on the `modus-wc-switch` element for accessibility.
 
@@ -101,7 +101,7 @@ If you don't provide a `label`, ensure you provide an `aria-label` directly on t
 <modus-wc-switch aria-label="Power toggle"></modus-wc-switch>
 ```
 
-**Handling Input Events:**
+### Handling Input Events
 
 You can listen to `inputChange`, `inputFocus`, and `inputBlur` events.
 

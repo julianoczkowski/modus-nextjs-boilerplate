@@ -182,5 +182,4 @@ Listen to the `tabChange` event to react when the active tab changes. The event 
   });
 </script>
 ```
-
 ````
