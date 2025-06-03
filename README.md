@@ -161,14 +161,14 @@ import {
 
 This boilerplate can be deployed to any platform that supports Next.js:
 
-- **Vercel** (recommended)
+- **Vercel**
 - **Netlify**
 - **AWS Amplify**
 - **Docker**
 
 ## Resources
 
-- [Modus Web Components Documentation](https://github.com/trimble-oss/modus-web-components)
+- [Modus Web Components Documentation](https://trimble-oss.github.io/modus-wc-2.0/main/?path=/docs/documentation-getting-started--docs)
 - [Modus Icons](https://modus-icons.trimble.com)
 - [Modus Design System](https://modus.trimble.com)
 - [Next.js Documentation](https://nextjs.org/docs)
