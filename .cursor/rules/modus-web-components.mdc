@@ -3,7 +3,7 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Modus Web Component Names 
+# Modus Web Components 
 You will always use these names and use the provided documentation in: Docs Modus/info-modus-components/ to understand how components are used. Refer to documentation sites when necessary.
 
 Getting Started: https://trimble-oss.github.io/modus-wc-2.0/main/?path=/docs/documentation-getting-started--docs
