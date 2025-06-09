@@ -1,7 +1,9 @@
 "use client";
 
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { ClientOnly } from "@/components/ClientOnly";
+import { AssignDatesModal } from "@/components/AssignDatesModal";
+import { ProcessingImportModal } from "@/components/ProcessingImportModal";
+import { useState } from "react";
 import {
   ModusWcButton,
   ModusWcCard,
@@ -12,6 +14,44 @@ import {
 } from "@trimble-oss/moduswebcomponents-react";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProcessingModalOpen, setIsProcessingModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleOpenProcessingModal = () => {
+    setIsProcessingModalOpen(true);
+  };
+
+  const handleCloseProcessingModal = () => {
+    setIsProcessingModalOpen(false);
+  };
+
+  const handleCancelProcessing = () => {
+    console.log("Processing cancelled");
+    setIsProcessingModalOpen(false);
+  };
+
+  const handleImport = (
+    files: Array<{
+      id: string;
+      fileName: string;
+      surveyDate: string;
+      surveyTime: string;
+      status: "Assigned" | "Pending";
+      selected: boolean;
+    }>
+  ) => {
+    console.log("Importing files:", files);
+    // Handle the imported files here
+  };
+
   const loadingFallback = (
     <div className="min-h-screen p-8">
       <div className="max-w-4xl mx-auto">
@@ -69,7 +109,7 @@ export default function Home() {
       <div className="min-h-screen p-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <header className="flex justify-between items-center mb-8">
+          <header className="mb-8">
             <div>
               <h1 className="text-4xl font-bold mb-2">
                 Modus Next.js Boilerplate
@@ -78,7 +118,6 @@ export default function Home() {
                 A Next.js boilerplate with Modus Web Components and Icons
               </p>
             </div>
-            <ThemeSwitcher />
           </header>
 
           {/* Alert */}
@@ -143,11 +182,29 @@ export default function Home() {
                       mail
                     </i>
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 space-y-2">
                     <ModusWcButton color="primary">
                       <i className="modus-icons mr-2">add</i>
                       Button with Icon
                     </ModusWcButton>
+                    <div className="space-y-2">
+                      <ModusWcButton
+                        color="secondary"
+                        onClick={handleOpenModal}
+                      >
+                        <i className="modus-icons mr-2">calendar</i>
+                        Assign Dates
+                      </ModusWcButton>
+                      <div>
+                        <ModusWcButton
+                          color="primary"
+                          onClick={handleOpenProcessingModal}
+                        >
+                          <i className="modus-icons mr-2">cloud_upload</i>
+                          Processing Import
+                        </ModusWcButton>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -174,19 +231,19 @@ export default function Home() {
                 <h2 className="text-2xl font-semibold mb-4">Theme System</h2>
                 <div className="space-y-4">
                   <p className="text-sm opacity-75">
-                    This boilerplate uses the Modus Classic theme with both
-                    light and dark modes. Use the theme switcher in the
-                    top-right corner to toggle between modes.
+                    This boilerplate is configured to use the Modus Classic
+                    Light theme exclusively, providing a consistent and
+                    professional appearance.
                   </p>
                   <div className="space-y-2">
                     <p>
-                      <strong>Current Theme:</strong> Modus Classic
+                      <strong>Current Theme:</strong> Modus Classic Light
                     </p>
                     <p>
-                      <strong>Available Modes:</strong> Light & Dark
+                      <strong>Theme Mode:</strong> Light (Fixed)
                     </p>
                     <p>
-                      <strong>Theme Storage:</strong> Local Storage
+                      <strong>Design System:</strong> Modus Design System
                     </p>
                   </div>
                 </div>
@@ -260,6 +317,20 @@ export default function Home() {
             </p>
           </footer>
         </div>
+
+        {/* Assign Dates Modal */}
+        <AssignDatesModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          onImport={handleImport}
+        />
+
+        {/* Processing Import Modal */}
+        <ProcessingImportModal
+          isOpen={isProcessingModalOpen}
+          onClose={handleCloseProcessingModal}
+          onCancel={handleCancelProcessing}
+        />
       </div>
     </ClientOnly>
   );

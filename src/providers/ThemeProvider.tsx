@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ModusWcThemeProvider } from "@trimble-oss/moduswebcomponents-react";
 
 interface ThemeProviderProps {
@@ -8,13 +8,26 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const initialTheme = {
+  // Fixed to modus-classic-light theme only
+  const fixedTheme = {
     theme: "modus-classic" as const,
     mode: "light" as const,
   };
 
+  // Set theme attributes on HTML element to ensure consistency
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.setAttribute(
+        "data-theme",
+        "modus-classic-light"
+      );
+      document.documentElement.setAttribute("data-mode", "light");
+      document.documentElement.className = "light";
+    }
+  }, []);
+
   return (
-    <ModusWcThemeProvider initialTheme={initialTheme}>
+    <ModusWcThemeProvider initialTheme={fixedTheme}>
       {children}
     </ModusWcThemeProvider>
   );

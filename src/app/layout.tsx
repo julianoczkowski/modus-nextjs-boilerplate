@@ -26,26 +26,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('modus-theme') || 'modus-classic';
-                  var mode = localStorage.getItem('modus-mode') || 'light';
-                  var themeValue = theme + '-' + mode;
-                  document.documentElement.setAttribute('data-theme', themeValue);
-                  document.documentElement.setAttribute('data-mode', mode);
-                  document.documentElement.className = mode;
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'modus-classic-light');
-                  document.documentElement.setAttribute('data-mode', 'light');
-                  document.documentElement.className = 'light';
-                }
-              })();
-            `,
-          }}
-        />
         <link
           rel="preload"
           href="https://cdn.jsdelivr.net/npm/@trimble-oss/modus-icons@latest/dist/modus-outlined/fonts/modus-icons.css"
